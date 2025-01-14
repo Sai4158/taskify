@@ -7,8 +7,10 @@ const page = async ({ params }) => {
   const getTopicById = async () => {
     try {
       const res = await fetch(
-        `/models/Api/topics?id=${id}`,
-        { cache: "no-store" }
+        `taskify123.vercel.app/models/Api/topics?id=${id}`,
+        {
+          cache: "no-store",
+        }
       );
       if (!res.ok) {
         throw new Error("Failed to fetch the topic");
