@@ -7,7 +7,7 @@ const page = async ({ params }) => {
   const getTopicById = async () => {
     try {
       const res = await fetch(
-        `taskify123.vercel.app/models/Api/topics?id=${id}`,
+        `https://taskify123.vercel.app/models/Api/topics?id=${id}`,
         {
           cache: "no-store",
         }
