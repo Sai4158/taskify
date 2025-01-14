@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
