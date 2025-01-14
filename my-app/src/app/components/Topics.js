@@ -1,4 +1,4 @@
-"use client"; // Enabling client-side rendering
+"use client";
 
 import React, { useEffect, useState } from "react";
 import RemoveBtn from "./RemoveBtn";
@@ -30,29 +30,24 @@ const Topics = () => {
   }, []);
 
   return (
-    <div className="px-4 md:px-10 py-8 max-w-5xl mx-auto">
-      {error && (
-        <p className="text-red-500 font-bold text-center mb-4">{error}</p>
-      )}
-      {!topics.length && !error && (
-        <p className="text-gray-600 text-center">No topics found.</p>
-      )}
+    <div className="px-4 lg:px-20">
+      {error && <p className="text-red-500 font-bold">{error}</p>}
       {topics.map((t) => (
         <div
           key={t._id}
-          className="p-5 border border-gray-300 bg-white shadow-sm rounded-lg hover:shadow-md transition-all duration-300 my-4 flex justify-between items-start gap-4"
+          className="p-4 border border-slate-300 my-3 rounded-lg shadow-lg flex justify-between gap-5 items-start bg-yellow-50 max-w-2xl lg:max-w-full mx-auto lg:mx-0"
         >
           <div>
-            <h2 className="font-extrabold text-xl text-gray-800">{t.title}</h2>
-            <p className="text-gray-600 mt-2">{t.description}</p>
+            <h2 className="font-bold text-2xl">{t.title}</h2>
+            <div className="text-gray-600">{t.description}</div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex gap-2">
             <RemoveBtn id={t._id} />
-            <Link
-              href={`/EditTopic/${t._id}`}
-              className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-all"
-            >
-              <HiPencilAlt size={20} />
+            <Link href={`/EditTopic/${t._id}`}>
+              <HiPencilAlt
+                size={24}
+                className="text-blue-500 hover:text-blue-700"
+              />
             </Link>
           </div>
         </div>

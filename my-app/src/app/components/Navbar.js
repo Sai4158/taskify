@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <nav className="flex justify-between items-center bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 px-8 py-4 shadow-lg rounded-lg">
+    <nav className="flex justify-between items-center bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 px-12 py-4 shadow-lg rounded-lg">
       {/* Home Link */}
       <Link
-        className="text-white font-semibold text-lg hover:text-gray-300 transition-all duration-200"
+        className="text-white font-semibold text-3xl hover:text-gray-300 transition-all duration-200"
         href="/"
       >
-        Home
+        <h1>Taskify</h1>
       </Link>
 
       {/* Add Topic Button */}
