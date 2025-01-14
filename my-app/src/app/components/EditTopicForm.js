@@ -34,29 +34,31 @@ const EditTopicForm = ({ id, title, description }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 max-w-2xl mx-auto"
+      className="flex flex-col gap-6 max-w-xl mx-auto bg-white p-8 shadow-lg rounded-lg"
     >
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">Edit Topic</h2>
+
       {/* Title Input */}
-      <label className="font-bold text-lg">
+      <label className="font-medium text-gray-700">
         Title
         <input
           type="text"
           value={newTitle}
           onChange={(e) => setNewTitle(e.target.value)}
           placeholder="Enter topic title"
-          className="border border-gray-400 px-4 py-2 w-full mt-1"
+          className="mt-2 border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           required
         />
       </label>
 
       {/* Description Input */}
-      <label className="font-bold text-lg">
+      <label className="font-medium text-gray-700">
         Description
         <textarea
           value={newDescription}
           onChange={(e) => setNewDescription(e.target.value)}
           placeholder="Enter topic description"
-          className="border border-gray-400 px-4 py-2 w-full mt-1"
+          className="mt-2 border border-gray-300 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-blue-400 focus:outline-none"
           rows="5"
           required
         />
@@ -65,7 +67,7 @@ const EditTopicForm = ({ id, title, description }) => {
       {/* Submit Button */}
       <button
         type="submit"
-        className="bg-blue-600 text-white font-bold py-2 px-4 hover:bg-blue-700"
+        className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-all duration-300 ease-in-out shadow-md"
       >
         Update Topic
       </button>
