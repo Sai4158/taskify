@@ -35,27 +35,45 @@ const Page = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 mx-80">
-        <input
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          type="text"
-          placeholder="Topic Title"
-          className="border border-slate-500 px-8 py-2"
-        />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-200">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+      >
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Add New Topic
+        </h2>
 
-        <input
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          type="text"
-          placeholder="Topic description"
-          className="border border-slate-500 px-8 py-2"
-        />
+        {/* Title Input */}
+        <label className="block mb-4">
+          <span className="text-gray-700 font-medium">Title</span>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Enter topic title"
+            className="mt-2 block w-full rounded-lg border border-gray-300 p-3 text-gray-800 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            required
+          />
+        </label>
 
+        {/* Description Input */}
+        <label className="block mb-6">
+          <span className="text-gray-700 font-medium">Description</span>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Enter topic description"
+            className="mt-2 block w-full rounded-lg border border-gray-300 p-3 text-gray-800 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            rows="4"
+            required
+          />
+        </label>
+
+        {/* Submit Button */}
         <button
           type="submit"
-          className="bg-green-600 font-bold text-white py-3 px-4"
+          className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md"
         >
           Add Topic
         </button>
