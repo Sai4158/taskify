@@ -25,15 +25,23 @@ const page = async ({ params }) => {
   const topic = await getTopicById();
 
   if (!topic) {
-    return <div className="text-red-500 font-bold">Error: Topic not found</div>;
+    return (
+      <div className="text-red-500 font-bold text-center mt-10 animate-pulse">
+        Error: Topic not found
+      </div>
+    );
   }
 
   const { title = "", description = "" } = topic;
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6 font-extralight">change topic</h1>
-      <EditTopicForm id={id} title={title} description={description} />
+    <div className="p-6 md:p-10 max-w-4xl mx-auto bg-gradient-to-br from-white to-gray-100 shadow-xl rounded-lg animate-fadeIn">
+      <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-900 tracking-widest">
+        Edit Topic
+      </h1>
+      <div className="transition-transform duration-300 hover:scale-105">
+        <EditTopicForm id={id} title={title} description={description} />
+      </div>
     </div>
   );
 };
