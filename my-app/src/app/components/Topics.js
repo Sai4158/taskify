@@ -30,21 +30,29 @@ const Topics = () => {
   }, []);
 
   return (
-    <div>
-      {error && <p className="text-red-500 font-bold">{error}</p>}
+    <div className="px-4 md:px-10 py-8 max-w-5xl mx-auto">
+      {error && (
+        <p className="text-red-500 font-bold text-center mb-4">{error}</p>
+      )}
+      {!topics.length && !error && (
+        <p className="text-gray-600 text-center">No topics found.</p>
+      )}
       {topics.map((t) => (
         <div
           key={t._id}
-          className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start mx-28"
+          className="p-5 border border-gray-300 bg-white shadow-sm rounded-lg hover:shadow-md transition-all duration-300 my-4 flex justify-between items-start gap-4"
         >
           <div>
-            <h2 className="font-bold text-2xl">{t.title}</h2>
-            <div>{t.description}</div>
+            <h2 className="font-extrabold text-xl text-gray-800">{t.title}</h2>
+            <p className="text-gray-600 mt-2">{t.description}</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-3">
             <RemoveBtn id={t._id} />
-            <Link href={`/EditTopic/${t._id}`}>
-              <HiPencilAlt size={24} />
+            <Link
+              href={`/EditTopic/${t._id}`}
+              className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-all"
+            >
+              <HiPencilAlt size={20} />
             </Link>
           </div>
         </div>
