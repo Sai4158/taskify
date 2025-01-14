@@ -35,7 +35,7 @@ const Topics = () => {
       {topics.map((t) => (
         <div
           key={t._id}
-          className="p-4 border border-slate-300 my-3 rounded-lg shadow-lg flex justify-between gap-5 items-start bg-yellow-50 max-w-2xl lg:max-w-full mx-auto lg:mx-0"
+          className="p-4 border border-slate-300 my-3 rounded-lg shadow-lg flex justify-between gap-5 items-start bg-blue-50 max-w-2xl lg:max-w-full mx-auto lg:mx-0"
         >
           <div>
             <h2 className="font-bold text-2xl">{t.title}</h2>
