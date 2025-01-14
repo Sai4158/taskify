@@ -10,7 +10,7 @@ const RemoveBtn = ({ id }) => {
     if (isConfirmed) {
       try {
         const res = await fetch(
-          `http://localhost:3000/models/Api/topics?id=${id}`,
+          `/models/Api/topics?id=${id}`,
           {
             method: "DELETE",
           }

@@ -12,7 +12,7 @@ const Topics = () => {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const res = await fetch("http://localhost:3000/models/Api/topics", {
+        const res = await fetch("/models/Api/topics", {
           cache: "no-store",
         });
         if (!res.ok) {

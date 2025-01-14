@@ -10,7 +10,7 @@ const EditTopicForm = ({ id, title, description }) => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/models/Api/topics/${id}`, {
+      const res = await fetch(`/models/Api/topics/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

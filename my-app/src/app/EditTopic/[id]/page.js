@@ -7,7 +7,7 @@ const page = async ({ params }) => {
   const getTopicById = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/models/Api/topics?id=${id}`,
+        `/models/Api/topics?id=${id}`,
         { cache: "no-store" }
       );
       if (!res.ok) {
