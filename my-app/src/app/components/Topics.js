@@ -1,31 +1,37 @@
-"use client";
+"use client"; // Enabling client-side rendering
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
 
-// Fetches topic information from the API
-const getTopic = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/models/Api/topics", {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error("Failed to fetch");
-    }
-    return res.json();
-  } catch (error) {
-    console.log("Error fetching topics:", error);
-    return [];
-  }
-};
+const Topics = () => {
+  const [topics, setTopics] = useState([]);
+  const [error, setError] = useState(null);
 
-const Topics = async () => {
-  const topics = await getTopic();
+  useEffect(() => {
+    const fetchTopics = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/models/Api/topics", {
+          cache: "no-store",
+        });
+        if (!res.ok) {
+          throw new Error("Failed to fetch topics");
+        }
+        const data = await res.json();
+        setTopics(data);
+      } catch (err) {
+        console.error("Error fetching topics:", err.message);
+        setError("Error loading topics.");
+      }
+    };
+
+    fetchTopics();
+  }, []);
 
   return (
     <div>
+      {error && <p className="text-red-500 font-bold">{error}</p>}
       {topics.map((t) => (
         <div
           key={t._id}
